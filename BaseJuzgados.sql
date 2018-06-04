@@ -26,10 +26,11 @@ CREATE TABLE `tinfexpediente` (
   `CnumExp` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Folio correspondiente del expediente.',
   `CfechaExp` varchar(45) NOT NULL COMMENT 'Fecha correspondiente a la creación del expediente',
   `CtipoCaso_idCaso` int(11) NOT NULL COMMENT 'Clave que nos identifica qué tipo de caso se trata en el expediente, enlazada con la tabla tipoCaso.',
+  `CestadoExp` varchar(45) NOT NULL,
   PRIMARY KEY (`CnumExp`),
   KEY `fk_infExpediente_tipoCaso1_idx` (`CtipoCaso_idCaso`),
   CONSTRAINT `fk_infExpediente_tipoCaso1` FOREIGN KEY (`CtipoCaso_idCaso`) REFERENCES `ttipocaso` (`CidCaso`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Tabla donde muetra la información necesaria de cada expediente.';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Tabla donde muetra la información necesaria de cada expediente.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +39,7 @@ CREATE TABLE `tinfexpediente` (
 
 LOCK TABLES `tinfexpediente` WRITE;
 /*!40000 ALTER TABLE `tinfexpediente` DISABLE KEYS */;
-INSERT INTO `tinfexpediente` VALUES (2,'04/06/2018',1);
+INSERT INTO `tinfexpediente` VALUES (1,'04/06/2018',1,'Almacen');
 /*!40000 ALTER TABLE `tinfexpediente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,5 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-04 14:33:24
-
+-- Dump completed on 2018-06-04 14:54:50

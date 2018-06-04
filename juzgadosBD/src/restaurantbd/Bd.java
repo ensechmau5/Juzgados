@@ -24,7 +24,7 @@ public final class Bd {
     private final String CONTROLADOR = "com.mysql.jdbc.Driver";
     private final String URL_BASEDATOS = "jdbc:mysql://localhost:3306/juzgados";
     private final String USUARIO = "root";
-    private final String PWD = "dw44";
+    private final String PWD = "root";
 
     /**
      * En este paso se intenta realizar la conexión a la base de datos, por
@@ -106,12 +106,13 @@ public final class Bd {
                         int id = conjuntoResultados.getInt("CnumExp");
                         String fecha = conjuntoResultados.getString("CfechaExp");
                         int tipoCaso = conjuntoResultados.getInt("CtipoCaso_idCaso");
+                        String estado = conjuntoResultados.getString("CestadoExp");
                         
                         
                         /*
                          Se regresan los datos obtenidos dentro de una lista
                          */
-                        altaExpedientes expedientes = new altaExpedientes(id, fecha, tipoCaso);
+                        altaExpedientes expedientes = new altaExpedientes(id, fecha, tipoCaso, estado);
 
                         listaExpedientes.add(expedientes);
                     }

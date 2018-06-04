@@ -23,11 +23,12 @@ DROP TABLE IF EXISTS `tinfexpediente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tinfexpediente` (
-  `CnumExp` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Folio correspondiente del expediente.',
+  `CidExp` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Folio correspondiente del expediente.',
+  `CnumExp` int(11) NOT NULL 'Folio correspondiente del expediente.',
   `CfechaExp` varchar(45) NOT NULL COMMENT 'Fecha correspondiente a la creación del expediente',
   `CtipoCaso_idCaso` int(11) NOT NULL COMMENT 'Clave que nos identifica qué tipo de caso se trata en el expediente, enlazada con la tabla tipoCaso.',
   `CestadoExp` varchar(45) NOT NULL,
-  PRIMARY KEY (`CnumExp`),
+  PRIMARY KEY (`CidExp`),
   KEY `fk_infExpediente_tipoCaso1_idx` (`CtipoCaso_idCaso`),
   CONSTRAINT `fk_infExpediente_tipoCaso1` FOREIGN KEY (`CtipoCaso_idCaso`) REFERENCES `ttipocaso` (`CidCaso`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Tabla donde muetra la información necesaria de cada expediente.';
